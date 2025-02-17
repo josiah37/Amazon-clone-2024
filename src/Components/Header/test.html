@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Amazon Header</title>
+      <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+         }
+
+         .amazon-header {
+            background-color: #131921;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+         }
+
+         .logo {
+            width: 100px;
+            margin-top: 5px;
+         }
+
+         .delivery-info {
+            color: white;
+            padding: 5px;
+         }
+
+         .delivery-info span {
+            font-size: 12px;
+         }
+
+         .delivery-info p {
+            font-weight: bold;
+            font-size: 14px;
+         }
+
+         .search-container {
+            flex-grow: 1;
+            display: flex;
+         }
+
+         .search-select {
+            background-color: #f3f3f3;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            padding: 8px;
+         }
+
+         .search-input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+         }
+
+         .search-button {
+            background-color: #febd69;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+         }
+
+         .header-right {
+            display: flex;
+            gap: 20px;
+            color: white;
+         }
+
+         .header-link {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+         }
+
+         .cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+         }
+      </style>
+   </head>
+   <body>
+      <header class="amazon-header">
+         <!-- Amazon Logo -->
+         <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+            alt="Amazon Logo"
+            class="logo"
+         />
+
+         <!-- Delivery Info -->
+         <div class="delivery-info">
+            <span>Deliver to</span>
+            <p>Ethiopia</p>
+         </div>
+
+         <!-- Search Bar -->
+         <div class="search-container">
+            <select class="search-select">
+               <option>All</option>
+               <option>other</option>
+            </select>
+            <input type="text" class="search-input" placeholder="Search Amazon" />
+            <button class="search-button">🔍</button>
+         </div>
+
+         <!-- Right Section -->
+         <div class="header-right">
+            <a href="#" class="header-link">
+               <span>Hello, sign in</span>
+               <br />
+               <strong>Account & Lists</strong>
+            </a>
+
+            <a href="#" class="header-link">
+               <span>Returns</span>
+               <br />
+               <strong>& Orders</strong>
+            </a>
+
+            <div class="cart header-link">
+               <span>🛒</span>
+               <strong>Cart</strong>
+            </div>
+         </div>
+      </header>
+
+      <br />
+      <div class="container">
+         <div class="item" style="flex-grow: 1">Item 1</div>
+         <div class="item" style="flex-grow: 1">Item 2</div>
+         <div class="item" style="flex-grow: 1">Item 3</div>
+      </div>
+      <br />
+      <style>
+         .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100px;
+            background-color: lightgray;
+            margin-top: 20%;
+         }
+         .item {
+            background-color: coral;
+            margin: 10px;
+            padding: 20px;
+            color: white;
+         }
+      </style>
+   </body>
+</html>

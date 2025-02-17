@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./App.css";
+import Home from "./Pages/Home";
+import "./index.css";
 
 function App() {
    //  const [count, setCount] = useState(0);
 
    return (
       <>
-         <h1>cleaned up!</h1>
+         <Home />
       </>
    );
 }

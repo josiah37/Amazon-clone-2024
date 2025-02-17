@@ -1,0 +1,133 @@
+/* .header .rightside ul {
+   display: flex;
+   /* justify-content: space-evenly; 
+   text-decoration: none;
+   list-style: none;
+   width: 30%;
+} */
+
+* {
+   padding: 0;
+   margin: 0;
+}
+
+header nav {
+   margin-top: 20%;
+   color: rgba(248, 245, 245, 0.938);
+   background-color: #1f1f1f;
+   /* justify-content: space-evenly; */
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   height: 70px;
+}
+
+.logowrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   max-width: 10%;
+}
+
+header nav img {
+   width: 60%;
+   padding-top: 5px;
+   margin-left: 20px;
+   vertical-align: middle;
+}
+
+/* .leftside img {
+   width: 10%;
+}
+
+.header .search,
+.leftside {
+   display: inline-flex;
+   width: 20%;
+   .search {
+      justify-content: end;
+      align-items: flex-start;
+   }
+}
+.new {
+   display: inline-flex;
+} */
+
+.delivery {
+   display: flex;
+   justify-content: baseline;
+   align-items: end;
+}
+
+.nav_rightside ul {
+   display: flex;
+   list-style: none;
+   /* justify-content: space-evenly; */
+   gap: 0.25em;
+}
+
+.delivery p,
+.nav_rightside li p {
+   font-size: 11px;
+   color: beige;
+   font-weight: 500;
+}
+
+span {
+   font-weight: 600;
+}
+
+/* search */
+.search {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+   overflow: hidden;
+   width: 100%;
+   flex: 1;
+}
+
+.search select {
+   background-color: #f5f7f7;
+   height: 2em;
+   width: 4em;
+   border: none;
+   border-radius: 8%;
+   border-right: #d4d4d4;
+}
+
+/* .search select:hover {
+   background-color: #d4d4d4;
+}
+.search input {
+   height: 2em;
+   border-radius: 5%;
+   border: none;
+} */
+
+.search select,
+.search input {
+   padding: 5px;
+   font-weight: bold;
+   outline: 1px solid white;
+}
+.search select {
+   border: none;
+}
+.search input {
+   border: 1px solid white;
+   width: 100%;
+   margin-right: -2px;
+}
+.search svg {
+   padding: 7px;
+   background: #febd69;
+   color: #1a1a1a;
+}
+.search svg:hover {
+   background-color: #d49644;
+}
+.search:focus-within {
+   border: 2px solid rgb(235 161 173);
+}
