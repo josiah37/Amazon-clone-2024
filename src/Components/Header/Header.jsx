@@ -3,6 +3,8 @@ import logo from "../../assets/Amazon-logo.png";
 import styles from "./Header.module.css";
 import { IoMdSearch } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
+import { BiCart } from "react-icons/bi";
+import LowerHeader from "./LowerHeader";
 
 const Header = () => {
    return (
@@ -39,10 +41,11 @@ const Header = () => {
          </div> */}
 
          <header>
-            <nav>
+            {/* <nav> */}
+            <div className={styles.headerLeft}>
                <div className={styles.logowrapper}>
                   <a href="/">
-                     <img src={logo} alt="amazon logo" />
+                     <img src={logo} alt="amazon logo" className={styles.logo} />
                   </a>
                </div>
 
@@ -56,55 +59,60 @@ const Header = () => {
                      <span>Ethiopia</span>
                   </div>
                </div>
-               <div className={styles.search} >
-                  {/* search */}
-                  <select id="exampleSelect" name="all">
-                     <option value="All">All</option>
-                     <option value="onething">somthing</option>
-                     <option value="ONEthing">somthing</option>
-                     <option value="ONEthing">somthing</option>
-                     <option value="ONEthing">somthing</option>
-                     <label htmlFor="search bar"></label>
-                  </select>
-                  <input type="text" placeholder="search here" id="serach-bar" />
-                  <span>
-                     <IoMdSearch />
-                  </span>
-               </div>
+            </div>
 
-               {/* RIGHT SIDE link */}
+            {/* search center Section */}
 
-               <div className={styles.nav_rightside}>
-                  <ul>
-                     <li>
-                        <a href="https://pngimg.com/image/14592" alt={"flag"} />
-                        <select name="" id="">
-                           <option value="EN">EN</option>
-                           <option value="canda">CN</option>
-                        </select>
-                     </li>
+            <div className={styles.search}>
+               <label htmlFor="search bar"></label>
+               <select id="exampleSelect" name="all">
+                  <option value="All">All</option>
+                  <option value="onething">somthing</option>
+                  <option value="ONEthing">somthing</option>
+                  <option value="ONEthing">somthing</option>
+                  <option value="ONEthing">somthing</option>
+               </select>
+               <input type="text" placeholder="search here" id="serach-bar" />
+               <button>
+                  <IoMdSearch />
+               </button>
+            </div>
 
-                     {/* orders */}
-                     <li>
-                        <a href="http://">
-                           <p>hello, sign in</p>
-                           <span> Account & lists</span>
-                        </a>
-                     </li>
-                     <li>
-                        <p>Returns</p> <span>& Orders</span>
-                     </li>
+            {/* RIGHT SIDE link */}
 
-                     {/* cart */}
-                     <li>
-                        <span>0</span>
-                        {/* icon */}
-                        Cart
-                     </li>
-                  </ul>
-               </div>
-            </nav>
+            <div className={styles.nav_rightside}>
+               <ul>
+                  <li className={styles.lang}>
+                     <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
+                        alt="flag"
+                     />
+                     <select name="" id="">
+                        <option value="EN">EN</option>
+                        <option value="canda">CN</option>
+                     </select>
+                  </li>
+                  {/* orders */}
+                  <li>
+                     <a href="http://">
+                        <p>hello, sign in</p>
+                        <span> Account & lists</span>
+                     </a>
+                  </li>
+                  <li>
+                     <p>Returns</p> <span>& Orders</span>
+                  </li>
+                  {/* cart */}
+                  <li className={styles.cart}>
+                     <span>0</span>
+                     <BiCart size={30} />
+                  </li>
+                  Cart
+               </ul>
+            </div>
+            {/* </nav> */}
          </header>
+         <LowerHeader />
       </>
    );
 };

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #1f1f1f;
+            color: aliceblue;
+            padding: 0 1rem;
+         }
+
+         .nav_rightside ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+         }
+
+         .nav_rightside li a {
+            display: flex;
+            flex-direction: column; /* or row, depending on your design */
+            text-decoration: none;
+            color: #fff;
+         }
+      </style>
+   </head>
+   <body>
+      <header class="header">
+         <!-- Left -->
+         <div class="headerLeft">
+            <!-- Logo, location, etc. -->
+         </div>
+
+         <!-- Center (Search) -->
+         <div class="search">
+            <select>
+               <!-- ... -->
+            </select>
+            <input type="text" placeholder="search here" />
+            <button>Search Icon</button>
+         </div>
+
+         <!-- Right -->
+         <div class="nav_rightside">
+            <ul>
+               <li>
+                  <!-- Language selector or flag -->
+                  <select>
+                     <option value="EN">EN</option>
+                     <option value="CN">CN</option>
+                  </select>
+               </li>
+               <li>
+                  <a href="#">
+                     <p>Hello, sign in</p>
+                     <span>Account & Lists</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <p>Returns</p>
+                     <span>& Orders</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>0</span>
+                     Cart
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </header>
+   </body>
+</html>
