@@ -1,11 +1,51 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import CategoryCard from "./CategoryCard";
+import axios from "axios";
 
-function Catagories() {
-    
-  return (
-   <>
-   </>
-  )
+
+function Categories() {
+   const [productsData, setProductsData] = useState([]);
+
+   useEffect(() => {
+      async function fetchProductsByCategory() {
+         try {
+            // Fetch categories
+            const categoriesResponse = await axios.get("https://fakestoreapi.com/products/categories");
+            const categories = categoriesResponse.data;
+            console.log("Categories:", categories); // Debugging output
+
+            // Create an array of promises for fetching products
+            const fetchPromises = categories.map(
+               (category) =>
+                  axios
+                     .get(`https://fakestoreapi.com/products/category/${category}?limit=1`)
+                     .then((response) => response.data) // Returns an array with 1 product
+            );
+
+            // Wait for all product fetch promises to resolve
+            const productsFetched = await Promise.all(fetchPromises);
+
+            //  Extract the first product from each category (fixing the nested array issue)
+            const flattenedProducts = productsFetched.map((productArray) => productArray[0]);
+
+            console.log("Fetched Products:", flattenedProducts); // Debugging output
+
+            setProductsData(flattenedProducts);
+         } catch (error) {
+            console.error("Error fetching data:", error);
+         }
+      }
+
+      fetchProductsByCategory();
+   }, []);
+
+   return (
+      <>
+         {productsData?.map((singleProductInfo, index) => (
+            <CategoryCard key={index} data={singleProductInfo} />
+         ))}
+      </>
+   );
 }
 
-export default Catagories
+export default Categories;
