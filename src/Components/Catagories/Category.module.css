@@ -27,6 +27,7 @@
 .category_container {
    position: relative;
    margin-top: -100px;
+   margin-bottom: 5%;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    place-items: center;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CategoryCard from "./CategoryCard";
 import axios from "axios";
-
+import styles from "./Category.module.css";
 
 function Categories() {
    const [productsData, setProductsData] = useState([]);
@@ -41,9 +41,11 @@ function Categories() {
 
    return (
       <>
-         {productsData?.map((singleProductInfo, index) => (
-            <CategoryCard key={index} data={singleProductInfo} />
-         ))}
+         <section className={styles.category_container}>
+            {productsData?.map((singleProductInfo, index) => (
+               <CategoryCard key={index} data={singleProductInfo} />
+            ))}
+         </section>
       </>
    );
 }

@@ -1,16 +1,16 @@
-import classes from "./category.module.css";
+import styles from "./category.module.css";
 
 function CategoryCard({ data }) {
-   if (!data) return null; // Avoids errors if data is undefined(kedmo render selmyadereg)
+   if (!data) return null; // Avoids errors if data is undefined(e.x: data.title renders and throw error way before the data comes in and brake the app) alternativly use can use the optional chaning too data?.title
 
    return (
-      <div className={classes.category}>
-         <a href="">
+      <div className={styles.category}>
+         <a href="#">
             {console.log(data)}
             <span>
-               <h3>{data.title}</h3>
+               <h3>{data?.title}</h3>
             </span>
-            <img src={data.image} alt={data.title} />
+            <img src={data?.image} alt={data?.title} />
             <p>shop now</p>
          </a>
       </div>

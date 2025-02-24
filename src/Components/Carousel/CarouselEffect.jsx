@@ -6,7 +6,7 @@ function CarouselEffect() {
    return (
       <>
          <Carousel
-            // autoPlay={true}
+            autoPlay={true}
             infiniteLoop={true}
             showIndicators={false}
             showThumbs={false}
@@ -17,7 +17,7 @@ function CarouselEffect() {
                <img src={imgItem} alt={`image ${idx + 1}`} key={idx + 1} />
             ))}
          </Carousel>
-         {/* <div className={style.hero_img}></div> */}
+         <div className={style.hero_img}></div>
       </>
    );
 }
