@@ -1,9 +1,12 @@
 .footer {
    background-color: #000;
    color: aliceblue;
-   padding-top: 5%;
-   margin-top: 5%;
+   /* padding: 2%; */
+   margin-top: 2%;
+   width: 100%;
    text-align: center;
+   /* position: fixed; */
+   bottom: 0;
 }
 
 /* .footer {

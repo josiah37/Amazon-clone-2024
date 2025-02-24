@@ -12,7 +12,7 @@ function Categories() {
             // Fetch categories
             const categoriesResponse = await axios.get("https://fakestoreapi.com/products/categories");
             const categories = categoriesResponse.data;
-            console.log("Categories:", categories); // Debugging output
+            // console.log("Categories:", categories); // Debugging output
 
             // Create an array of promises for fetching products
             const fetchPromises = categories.map(
@@ -28,7 +28,7 @@ function Categories() {
             //  Extract the first product from each category (fixing the nested array issue)
             const flattenedProducts = productsFetched.map((productArray) => productArray[0]);
 
-            console.log("Fetched Products:", flattenedProducts); // Debugging output
+            // console.log("Fetched Products:", flattenedProducts); // Debugging output
 
             setProductsData(flattenedProducts);
          } catch (error) {

@@ -112,6 +112,10 @@ button:hover {
 
 .nav_rightside ul li {
    list-style: none;
+   a {
+      text-decoration: none;
+      color: white;
+   }
 }
 
 header p {
@@ -132,11 +136,11 @@ header p {
    color: orange;
    /* padding-bottom: -20; */
 }
-.nav_rightside a:hover,
+.nav_rightside li:has(a):hover,
 .delivery:hover,
-.logo a:hover,
+.logowrapper:hover,
 .lower ul li:hover {
-   border: 1px solid white;
+   border: 1px solid rgb(245, 240, 240);
    border-radius: 3px;
 }
 

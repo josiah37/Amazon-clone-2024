@@ -5,6 +5,7 @@ import { IoMdSearch } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router";
 
 const Header = () => {
    return (
@@ -44,9 +45,9 @@ const Header = () => {
             {/* <nav> */}
             <div className={styles.headerLeft}>
                <div className={styles.logowrapper}>
-                  <a href="/">
+                  <Link to="/">
                      <img src={logo} alt="amazon logo" className={styles.logo} />
-                  </a>
+                  </Link>
                </div>
 
                {/* delivery */}
@@ -94,20 +95,25 @@ const Header = () => {
                   </li>
                   {/* orders */}
                   <li>
-                     <a href="http://">
+                     <Link to="signin">
                         <p>hello, sign in</p>
                         <span> Account & lists</span>
-                     </a>
+                     </Link>
                   </li>
                   <li>
-                     <p>Returns</p> <span>& Orders</span>
+                     <Link to="orders">
+                        <p>Returns</p> <span>& Orders</span>
+                     </Link>
                   </li>
                   {/* cart */}
                   <li className={styles.cart}>
                      <span>0</span>
-                     <BiCart size={30} />
+
+                     <Link to={"carts"}>
+                        <BiCart size={30} />
+                        Cart
+                     </Link>
                   </li>
-                  Cart
                </ul>
             </div>
             {/* </nav> */}
