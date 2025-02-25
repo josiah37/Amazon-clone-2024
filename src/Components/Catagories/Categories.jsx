@@ -18,7 +18,7 @@ function Categories() {
             const fetchPromises = categories.map(
                (category) =>
                   axios
-                     .get(`https://fakestoreapi.com/products/category/${category}?limit=1`)
+                     .get(`https://fakestoreapi.com/products/category/${category}?limit=1&sort=desc`)
                      .then((response) => response.data) // Returns an array with 1 product
             );
 

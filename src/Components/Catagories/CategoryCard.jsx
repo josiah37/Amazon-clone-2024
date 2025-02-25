@@ -9,7 +9,7 @@ function CategoryCard({ data }) {
          <Link to={`/category/${data?.category}`}>
             {console.log(data)}
             <span>
-               <h3>{data?.title}</h3>
+               <h3>{data?.title.split(" ").splice(0, 6).join(" ") + "..."}</h3>
             </span>
             <img src={data?.image} alt={data?.title} />
             <p>shop now</p>

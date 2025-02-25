@@ -8,6 +8,7 @@ import Carts from "../Pages/Cart/Carts";
 import Payment from "../Pages/Payment";
 import SignIn from "../Pages/Auth/SignIn";
 import Results from "../Pages/Results";
+import ProductsDetail from "../Pages/ProductsDetail";
 
 function AppRoutes() {
    return (
@@ -20,6 +21,7 @@ function AppRoutes() {
                <Route path="Payment" element={<Payment />} />
                <Route path="SignIn" element={<SignIn />} />
                <Route path="category/:categoryName" element={<Results />} />
+               <Route path="/product/:id" element={<ProductsDetail />} />
                {/* <Route path="" element={</>}/>
                      <Route path="" element={</>}/> */}
             </Route>

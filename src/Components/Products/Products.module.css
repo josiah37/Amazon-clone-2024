@@ -53,6 +53,7 @@
    padding: 0;
 }
 
+/*  for the `single product` page rendering  */
 .product_flexed {
    box-shadow: none;
    height: auto;
@@ -60,8 +61,11 @@
    justify-content: center;
    align-items: center;
    gap: 50px;
+
+   margin: 7rem 0 5rem 0;
    width: 100%;
-   margin-top: 5rem;
+   /* margin-bottom: 5rem; */
+   /* background-color: #d85757; */
 }
 .product_flexed h3 {
    padding: 20px 0px;
@@ -69,8 +73,8 @@
 .product_flexed .button {
    display: block !important;
    position: static;
-   width: 150px;
-   margin-right: 40px;
+   width: 20%;
+   /* margin-right: 40px; */
 }
 .product_flexed {
    height: 50vh;
@@ -80,7 +84,9 @@
    width: 300px;
    height: auto;
 }
-
+.detail {
+   width: 35%;
+}
 @media screen and (max-width: 768px) {
    .product_flexed {
       display: flex;
