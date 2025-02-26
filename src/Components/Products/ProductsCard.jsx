@@ -24,7 +24,7 @@ function ProductsCard({ productsData, singleProductData }) {
          </Link>
 
          <div className={singleProductData && styles.detail}>
-            <h3>{title?.split(" ").slice(0, 6).join(" ") + "..."}</h3>
+            <h3>{singleProductData ? title : title?.split(" ").slice(0, 6).join(" ") + "..." || " loading ...."}</h3>
             {singleProductData && <div>{description}</div>}
             <div className={styles.rating}>
                {/* setting the reting from data on the react material component using its attributes */}

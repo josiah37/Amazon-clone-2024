@@ -9,6 +9,7 @@ import Payment from "../Pages/Payment";
 import SignIn from "../Pages/Auth/SignIn";
 import Results from "../Pages/Results";
 import ProductsDetail from "../Pages/ProductsDetail";
+import TestCounter from "../Components/ReducerTest";
 
 function AppRoutes() {
    return (
@@ -27,6 +28,7 @@ function AppRoutes() {
             </Route>
 
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/test" element={<TestCounter />} />
          </Routes>
       </>
    );
