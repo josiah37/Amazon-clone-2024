@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import ProductsCard from "../Components/Products/ProductsCard";
 
 function ProductsDetail() {
+   //  provides a detail of a single component in a page by using the product id
    const [productDetail, setProductDetail] = useState({});
    const { id } = useParams();
    useEffect(() => {
@@ -19,12 +20,10 @@ function ProductsDetail() {
 
    return (
       <>
+      {/* we sent here true because since we need the card templet (instade of making one from scratch by 
+      mapping the oject and all the css)we used the product card compoent and if singleProductData true, 
+      we gave diffrent css as well as add product discription*/}
          <ProductsCard productsData={productDetail} singleProductData={true} />
-
-         {/* {productDetail.map((detail)=>(
-
-
-   ))} */}
       </>
    );
 }

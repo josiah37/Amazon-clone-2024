@@ -45,10 +45,10 @@ header {
    /* width: 50%; */
    display: flex;
 }
-button {
+.search button {
    background-color: #f4812a;
 }
-button:hover {
+.search button:hover {
    background-color: #b16429;
 }
 .search select,
