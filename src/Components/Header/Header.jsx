@@ -7,6 +7,7 @@ import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router";
 import { DataContext } from "../../utils/DataProvider";
+import { auth } from "../../utils/firebase";
 
 // to render the card count
 
@@ -14,39 +15,11 @@ const Header = () => {
    const { state, dispatch } = useContext(DataContext);
    // just to check og it works
    // console.log("on heder: ", state.basket.length);
+   // state.basket.length but better approch-- distrcutring!
+   const { user, basket } = state;
+   console.log(user);
    return (
       <>
-         {/* <div className={styles.new}>
-            <div className={styles.header}>
-               <div className={styles.leftside}>
-                  <img src={logo} alt="amazon logo" />
-                  <p>deiver to Ethiopia</p>
-               </div>
-
-               <section className={styles.search}>
-                  
-                  <select id="exampleSelect" name="options">
-                     <option value="All">All</option>
-                     <option value="onething">somthing</option>
-                     <option value="ONEthing">somthing</option>
-                     <option value="ONEthing">somthing</option>
-                     <option value="ONEthing">somthing</option>
-                     <label htmlFor="search bar"></label>
-                     <input type="text" placeholder="search here" id="serach-bar" />
-                  </select>
-               </section>
-
-               <section className={styles.rightside}>
-                  <ul>
-                     <li>EN</li>
-                     <li>hello, sign in Account S lists</li>
-                     <li>Returns & Orders</li>
-                     <li> Cart</li>
-                  </ul>
-               </section>
-            </div>
-         </div> */}
-
          <nav>
             <header>
                <div className={styles.headerLeft}>
@@ -101,9 +74,23 @@ const Header = () => {
                      </li>
                      {/* orders */}
                      <li>
-                        <Link to="auth">
-                           <p>hello, sign in</p>
-                           <span> Account & lists</span>
+                        <Link to={!user && "/auth"}>
+                           {/* //we are just borad casting to the fire base that the user has signed out. 
+                        // it it will be handeled by firebase later on on app.js.  */}
+                           <p>hello,{user ? user.email.split("@")[0] : "sign in"} </p>
+                           {user ? <span onClick={() => auth.signOut()}> sign Out</span> : <span>Account & lists</span>}
+                           {/* {user ? (
+                              <>
+                                 <p>Hello, {user.email.split("@")[0]} </p>
+                                 <p onClick={() => auth.signOut()}> sign Out</p>
+                              </>
+                           ) : (
+                              <>
+                                 <p>Hello, sign in </p>
+                                 <span>Account & lists</span>
+                              </>
+                           )} */}
+                           {/* {/* <span> Account & lists</span> */}
                         </Link>
                      </li>
                      <li>
@@ -113,7 +100,7 @@ const Header = () => {
                      </li>
                      {/* cart */}
                      <li className={styles.cart}>
-                        <span>{state.basket.length}</span>
+                        <span>{basket.length}</span>
 
                         <Link to={"carts"}>
                            <BiCart size={30} />

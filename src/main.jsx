@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App.jsx";
 // import { Provider } from "./utils/Provider.jsx";
 import { DataProvider } from "./utils/DataProvider.jsx";
+import { BrowserRouter } from "react-router";
 
 createRoot(document.getElementById("root")).render(
    <StrictMode>
-      <DataProvider>
-         <App />
-      </DataProvider>
+      <BrowserRouter>
+         <DataProvider>
+            <App />
+         </DataProvider>
+      </BrowserRouter>
    </StrictMode>
 );

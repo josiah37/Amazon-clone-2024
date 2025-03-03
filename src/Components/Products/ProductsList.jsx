@@ -11,7 +11,7 @@ function ProductsList() {
             // const async = ()=>{
 
             const allproducts = await axios.get("https://fakestoreapi.com/products");
-            console.log(allproducts);
+            // console.log(allproducts);
             setProducts(allproducts.data);
          } catch (error) {
             console.error("there is some error here:\n\t ", error);
@@ -22,9 +22,9 @@ function ProductsList() {
    }, []);
 
    useEffect(() => {
-      console.log(Products); // Log the updated Products state
+      // console.log(Products); // Log the updated Products state
    }, [Products]);
-   console.log(Products);
+   // console.log(Products);
    return (
       <section className={styles.product_container}>
          {Products?.map((singleProductItem) => {

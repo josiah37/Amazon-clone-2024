@@ -35,9 +35,9 @@ function ProductsCard({ productsData, singleProductData }) {
    };
 
    //to check the state holds the clicked products
-   console.log("the state is: ", state);
+   // console.log("the state is: ", state);
 
-   // if the data is fully present render 
+   // if the data is fully present render
    return (
       <div className={`${styles.card_container} ${singleProductData ? styles.product_flexed : ""}`}>
          {/* setting where each image will link or directs to  */}

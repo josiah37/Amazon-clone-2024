@@ -1,6 +1,6 @@
 //  handles the auth (including the sign in and ansign up)
 import styles from "./Auth.module.css";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import AmazonLogo from "/src/assets/Amazon black.png";
 import { useState, useContext } from "react";
 import { auth } from "../../utils/firebase";
@@ -8,9 +8,17 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { DataContext, DataProvider } from "../../utils/DataProvider";
 import { Type } from "../../utils/Action.type";
+// import {} form "reacts"
+// TODO
+//    loader for the sign in/up btns
+// <SyncLoader speedMultiplier={0.7} />
 const Auth = () => {
    const [email, setEmail] = useState("");
    const [passwrd, setpasswrd] = useState("");
+   const [err, setErr] = useState("");
+
+   // console.log(passwrd);
+   // console.log(err);
 
    // this is just a variale you can name the sate what ever you want like `userstate` or anything
    // since we spaify the type when we fire the dispatch it knows where to go later on
@@ -20,6 +28,7 @@ const Auth = () => {
    // const { basket, user } = state;
    // console.log("user state:   ", user);
 
+   const navigate = useNavigate();
    /* handling user input */
    const inputHandler = (event) => {
       // console.log("Input event:", event.target.id);
@@ -32,21 +41,32 @@ const Auth = () => {
       // console.log(event.target.name);
       // event.target.name === "signin"
       if (event.target.name === "signin") {
-         signInWithEmailAndPassword(auth, email, passwrd).then((userinfo) => {
-            console.log(userinfo); // this retriuns an object and there we can find the user email  with user.email
-            dispatch({
-               // setting the action we took and also the state to be updated
-               type: Type.SET_USER,
-               user: userinfo.user,
-            });
-         });
+         signInWithEmailAndPassword(auth, email, passwrd)
+            .then((userinfo) => {
+               // console.log(userinfo); // this retriuns an object and there we can find the user email  with user.email
+               dispatch({
+                  // setting the action we took and also the state to be updated
+                  type: Type.SET_USER,
+                  user: userinfo.user,
+               });
+               navigate("/");
+            })
+            .catch((errcatched) => setErr(errcatched.message));
       } else {
-         createUserWithEmailAndPassword(auth, email, passwrd).then((userinfo) => {
-            console.log(userinfo);
-         });
+         createUserWithEmailAndPassword(auth, email, passwrd)
+            .then((userinfo) => {
+               console.log(userinfo);
+               dispatch({
+                  // setting the action we took and also the state to be updated
+                  type: Type.SET_USER,
+                  user: userinfo.user,
+               });
+               navigate("/");
+            })
+            .catch((errcatched) => setErr(errcatched.message));
       }
    };
-   console.log(passwrd);
+
    return (
       <section className={styles.login}>
          <Link to={"/"}>
@@ -78,6 +98,7 @@ const Auth = () => {
             <button onClick={AuthHandler} name="signup">
                Create your Amazon Account
             </button>
+            <div className={styles.error}>{err ? err : null}</div>
          </div>
       </section>
    );

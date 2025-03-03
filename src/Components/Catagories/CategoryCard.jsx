@@ -7,7 +7,7 @@ function CategoryCard({ data }) {
    return (
       <div className={styles.category}>
          <Link to={`/category/${data?.category}`}>
-            {console.log(data)}
+            {/* {console.log(data)} */}
             <span>
                <h3>{data?.title.split(" ").splice(0, 6).join(" ") + "..."}</h3>
             </span>
