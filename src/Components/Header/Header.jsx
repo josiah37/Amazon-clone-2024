@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/Amazon-logo.png";
 import styles from "./Header.module.css";
 import { IoMdSearch } from "react-icons/io";
@@ -6,8 +6,14 @@ import { IoLocationOutline } from "react-icons/io5";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router";
+import { DataContext } from "../../utils/DataProvider";
+
+// to render the card count
 
 const Header = () => {
+   const { state, dispatch } = useContext(DataContext);
+   // just to check og it works
+   // console.log("on heder: ", state.basket.length);
    return (
       <>
          {/* <div className={styles.new}>
@@ -41,84 +47,84 @@ const Header = () => {
             </div>
          </div> */}
 
-         <header>
-            {/* <nav> */}
-            <div className={styles.headerLeft}>
-               <div className={styles.logowrapper}>
-                  <Link to="/">
-                     <img src={logo} alt="amazon logo" className={styles.logo} />
-                  </Link>
-               </div>
+         <nav>
+            <header>
+               <div className={styles.headerLeft}>
+                  <div className={styles.logowrapper}>
+                     <Link to="/">
+                        <img src={logo} alt="amazon logo" className={styles.logo} />
+                     </Link>
+                  </div>
 
-               {/* delivery */}
-               <div className={styles.delivery}>
-                  <span>
-                     <IoLocationOutline />
-                  </span>
-                  <div>
-                     <p>deliver to</p>
-                     <span>Ethiopia</span>
+                  {/* delivery */}
+                  <div className={styles.delivery}>
+                     <span>
+                        <IoLocationOutline />
+                     </span>
+                     <div>
+                        <p>deliver to</p>
+                        <span>Ethiopia</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            {/* search center Section */}
+               {/* search center Section */}
 
-            <div className={styles.search}>
-               <label htmlFor="search bar"></label>
-               <select id="exampleSelect" name="all">
-                  <option value="All">All</option>
-                  <option value="onething">somthing</option>
-                  <option value="ONEthing">somthing</option>
-                  <option value="ONEthing">somthing</option>
-                  <option value="ONEthing">somthing</option>
-               </select>
-               <input type="text" placeholder="search here" id="serach-bar" />
-               <button>
-                  <IoMdSearch />
-               </button>
-            </div>
+               <div className={styles.search}>
+                  <label htmlFor="search bar"></label>
+                  <select id="exampleSelect" name="all">
+                     <option value="All">All</option>
+                     <option value="onething">somthing</option>
+                     <option value="ONEthing">somthing</option>
+                     <option value="ONEthing">somthing</option>
+                     <option value="ONEthing">somthing</option>
+                  </select>
+                  <input type="text" placeholder="search here" id="serach-bar" />
+                  <button>
+                     <IoMdSearch />
+                  </button>
+               </div>
 
-            {/* RIGHT SIDE link */}
+               {/* RIGHT SIDE link */}
 
-            <div className={styles.nav_rightside}>
-               <ul>
-                  <li className={styles.lang}>
-                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
-                        alt="flag"
-                     />
-                     <select name="" id="">
-                        <option value="EN">EN</option>
-                        <option value="canda">CN</option>
-                     </select>
-                  </li>
-                  {/* orders */}
-                  <li>
-                     <Link to="signin">
-                        <p>hello, sign in</p>
-                        <span> Account & lists</span>
-                     </Link>
-                  </li>
-                  <li>
-                     <Link to="orders">
-                        <p>Returns</p> <span>& Orders</span>
-                     </Link>
-                  </li>
-                  {/* cart */}
-                  <li className={styles.cart}>
-                     <span>0</span>
+               <div className={styles.nav_rightside}>
+                  <ul>
+                     <li className={styles.lang}>
+                        <img
+                           src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png"
+                           alt="flag"
+                        />
+                        <select name="" id="">
+                           <option value="EN">EN</option>
+                           <option value="canda">CN</option>
+                        </select>
+                     </li>
+                     {/* orders */}
+                     <li>
+                        <Link to="auth">
+                           <p>hello, sign in</p>
+                           <span> Account & lists</span>
+                        </Link>
+                     </li>
+                     <li>
+                        <Link to="orders">
+                           <p>Returns</p> <span>& Orders</span>
+                        </Link>
+                     </li>
+                     {/* cart */}
+                     <li className={styles.cart}>
+                        <span>{state.basket.length}</span>
 
-                     <Link to={"carts"}>
-                        <BiCart size={30} />
-                        Cart
-                     </Link>
-                  </li>
-               </ul>
-            </div>
-            {/* </nav> */}
-         </header>
-         <LowerHeader />
+                        <Link to={"carts"}>
+                           <BiCart size={30} />
+                           Cart
+                        </Link>
+                     </li>
+                  </ul>
+               </div>
+            </header>
+            <LowerHeader />
+         </nav>
       </>
    );
 };

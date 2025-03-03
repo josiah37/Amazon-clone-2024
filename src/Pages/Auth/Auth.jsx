@@ -2,29 +2,43 @@
 import styles from "./Auth.module.css";
 import { Link } from "react-router";
 import AmazonLogo from "/src/assets/Amazon black.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { auth } from "../../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import { DataContext, DataProvider } from "../../utils/DataProvider";
+import { Type } from "../../utils/Action.type";
 const Auth = () => {
    const [email, setEmail] = useState("");
    const [passwrd, setpasswrd] = useState("");
 
-   //  handling user input
+   // this is just a variale you can name the sate what ever you want like `userstate` or anything
+   // since we spaify the type when we fire the dispatch it knows where to go later on
+   const { state, dispatch } = useContext(DataContext);
+   // console.log("state gives all the state:    ", state);
+   // //the above is enought for now but you can disctucture the state futher if you wnat to get a single user
+   // const { basket, user } = state;
+   // console.log("user state:   ", user);
+
+   /* handling user input */
    const inputHandler = (event) => {
       // console.log("Input event:", event.target.id);
       event.target.id === "email" ? setEmail(event.target.value) : setpasswrd(event.target.value);
    };
 
-   // handling sign in and asign up
+   /* handling sign in and asign up*/
    const AuthHandler = (event) => {
-      // event.preverntDefault();
+      event.preventDefault();
       // console.log(event.target.name);
       // event.target.name === "signin"
       if (event.target.name === "signin") {
          signInWithEmailAndPassword(auth, email, passwrd).then((userinfo) => {
-            console.log(userinfo);
+            console.log(userinfo); // this retriuns an object and there we can find the user email  with user.email
+            dispatch({
+               // setting the action we took and also the state to be updated
+               type: Type.SET_USER,
+               user: userinfo.user,
+            });
          });
       } else {
          createUserWithEmailAndPassword(auth, email, passwrd).then((userinfo) => {
@@ -32,7 +46,7 @@ const Auth = () => {
          });
       }
    };
-
+   console.log(passwrd);
    return (
       <section className={styles.login}>
          <Link to={"/"}>

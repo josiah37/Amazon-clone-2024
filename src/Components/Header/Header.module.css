@@ -10,7 +10,10 @@ header {
    display: flex;
    align-items: center;
    justify-content: space-between;
-   /* padding: ; */
+   /* position: fixed; */
+   /* top: 0; */
+   /* position: fixed; */
+   /* padding: 25px; */
    /* gap: 2%; */
 }
 
@@ -178,3 +181,8 @@ header p {
    border-radius: 3px;
    /* border-width: 5px; */
 }
+
+/* .nav {
+   top: 0;
+   position: fixed;
+} */
