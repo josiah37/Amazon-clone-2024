@@ -6,9 +6,9 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
 import { axiosStripeApi } from "../../utils/APILists";
 import { ClipLoader } from "react-spinners";
-// import { db } from "../../Utility/firebase";
-// import { useNavigate } from "react-router";
-// import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
 // import { Type } from "../../utils/Action.type";
 
 const Payment = () => {
@@ -44,14 +44,26 @@ const Payment = () => {
             url: `/payment/create?total=${total * 100}`,
          });
          const clientSecret = response.data?.clientSecret;
+
          //step2 confirm the payment form client side(react) ... telling to which user we need to confirm the payment
          // our client sk with the card info the client put in
-         const confirmation = await stripe.confirmCardPayment(clientSecret, {
+
+         //we destructure it since we need the id later instead of putting it in in var and make the process longer
+         const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                card: elements.getElement(CardElement), // get the element from the cardElement, which we set up in z render
             },
          });
-         console.log(confirmation);
+         console.log(paymentIntent);
+
+         //step3: After the confirmation is over,  move to database store, and clear basket."
+         // collection is like a table while doc is like a row.(in a collection there are docs)
+         await db
+            .collection("users")
+            .doc(user.uid)
+            .collection("orders")
+            .doc(paymentIntent.id)
+            .set({ basket: basket, amount: paymentIntent.amount, created: paymentIntent.created });
       } catch (error) {
          console.log(error, error?.response?.data?.message);
          // the above error handler handel on change but what if the user forgets to insert their info
@@ -149,7 +161,7 @@ const Payment = () => {
                                        <p>Please Wait ...</p>
                                     </div>
                                  ) : (
-                                    " Pay Now" // you can make this one to done if is is success
+                                    " Pay Now" // you can make this one to done if is is success or make the state 0
                                  )}
                               </button>
                            </div>
