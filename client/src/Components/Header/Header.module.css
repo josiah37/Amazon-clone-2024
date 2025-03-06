@@ -125,10 +125,9 @@ header p {
    font-size: small;
 }
 
-/* .cart {
-   display: flex;
-   flex-direction: column;
-} */
+.cart {
+   position: relative;
+}
 .cart span {
    position: absolute;
    font-weight: bold;

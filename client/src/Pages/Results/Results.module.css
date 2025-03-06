@@ -1,0 +1,15 @@
+.products_container {
+   /* display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   max-width: 1450px;
+   gap: 5%;
+   justify-items: center;
+   align-items: center; */
+   /* margin: 10e130pxm ; */
+
+   /*tesiing with grid*/
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   margin: 5% 2%;
+}

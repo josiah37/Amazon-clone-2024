@@ -5,6 +5,7 @@ import styles from "./Products.module.css";
 
 function ProductsList() {
    const [Products, setProducts] = useState([]);
+   const [loading, setLoading] = useState(true);
    useEffect(() => {
       async function productsfetcher() {
          try {
@@ -13,8 +14,10 @@ function ProductsList() {
             const allproducts = await axios.get("https://fakestoreapi.com/products");
             // console.log(allproducts);
             setProducts(allproducts.data);
+            setLoading(false);
          } catch (error) {
             console.error("there is some error here:\n\t ", error);
+            setLoading(false);
          }
       }
 
@@ -27,9 +30,13 @@ function ProductsList() {
    // console.log(Products);
    return (
       <section className={styles.product_container}>
-         {Products?.map((singleProductItem) => {
-            return <ProductsCard productsData={singleProductItem} />;
-         })}
+         {loading ? (
+            <p>is loading</p>
+         ) : (
+            Products?.map((singleProductItem) => {
+               return <ProductsCard key={singleProductItem.id} productsData={singleProductItem} />;
+            })
+         )}
       </section>
    );
 }

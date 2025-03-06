@@ -7,7 +7,7 @@ function SharedComponent() {
       <>
          <Header />
          <Outlet />
-         <Footer />
+         {/* <Footer /> */}
       </>
    );
 }

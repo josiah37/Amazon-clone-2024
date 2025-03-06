@@ -1,16 +1,17 @@
 import { Type } from "/src/utils/Action.type";
-import React, { useContext } from "react";
-import "./Cart.module.css";
+import classes from "./Cart.module.css";
 import ProductsCard from "/src/Components/Products/ProductsCard";
+import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router";
+import { useContext } from "react";
 import { DataContext } from "/src/utils/DataProvider";
-// import {CurrencyFormat}
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 function Cart() {
    //  const [{ basket, user }, dispatch] = useContext(DataContext);
    const { state, dispatch } = useContext(DataContext);
    const { basket, user } = state;
-
+   console.log(basket);
    const total = basket.reduce((amount, item) => {
       return item.price * item.amount + amount;
    }, 0);
@@ -37,10 +38,15 @@ function Cart() {
             {basket?.length == 0 ? (
                <p>sorry! there is No item in your cart</p>
             ) : (
-               basket?.map((item, i) => {
+               basket?.map((item, idx) => {
                   return (
                      <section className={classes.cart_product}>
-                        <ProductsCard key={i} product={item} renderDesc={true} renderAdd={false} flex={true} />
+                        <ProductsCard
+                           key={idx}
+                           productsData={item}
+                           /*renderDesc={true} renderAdd={false}*/ singleProductData={true}
+                           checkout={true}
+                        />
                         <div className={classes.btn_container}>
                            <button className={classes.btn} onClick={() => increment(item)}>
                               <IoIosArrowUp size={20} />

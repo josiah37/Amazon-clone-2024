@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import ProductsCard from "../Components/Products/ProductsCard";
+import ProductsCard from "../../Components/Products/ProductsCard";
 
 function ProductsDetail() {
    //  provides a detail of a single component in a page by using the product id

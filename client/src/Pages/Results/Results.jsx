@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import ProductsCard from "../Components/Products/ProductsCard";
-import styles from "./Result.module.css";
+import ProductsCard from "../../Components/Products/ProductsCard";
+import styles from "./Results.module.css";
 
 function Results() {
    // setting a state to hold a data of a spcific catagory product
@@ -24,7 +24,7 @@ function Results() {
          <h2 style={{ margin: "1%" }}>Results</h2>
          <hr />
          <p style={{ margin: "10px" }}> Catagory/ {categoryName}</p> <hr />
-         <div className={styles.product_container}>
+         <div className={styles.products_container}>
             {categoryProducts.map((singleProduct) => (
                // calling the "Producucts card" component as we normally do, and then
                //  giving the data that is only in certain catagory. but using the same prop name so that is work pefectly

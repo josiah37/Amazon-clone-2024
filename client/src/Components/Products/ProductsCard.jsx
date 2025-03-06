@@ -19,9 +19,10 @@ import { useContext } from "react";
  * @param {singleProductData} - state that holdes true or false. only true passes when to show a single product on apage
  * @returns contionally if data present the actual render if not a string("data is loading")
  */
-function ProductsCard({ productsData, singleProductData }) {
+function ProductsCard({ productsData, singleProductData, checkout }) {
    //  setting conditional rendering beacuse our image is taking time to load(its throwing  undefined because of it)
-   if (!productsData) return "data is loading...";
+   if (!productsData) return "data is loading...!!";
+
    const { image, title, id, rating, price, description } = productsData;
 
    const { state, dispatch } = useContext(DataContext);
@@ -39,33 +40,35 @@ function ProductsCard({ productsData, singleProductData }) {
 
    // if the data is fully present render
    return (
-      <div className={`${styles.card_container} ${singleProductData ? styles.product_flexed : ""}`}>
+      <div className={`${styles.card_container} ${singleProductData || checkout ? styles.product_flexed : ""}`}>
          {/* setting where each image will link or directs to  */}
-         <Link to={`/product/${id}`} alt="/">
+         <Link to={`/product/${id}`} alt={title}>
             {/* selcting the last to words for the alt and also making the title only the last 5 
             words (as those are the one relevant) and setting the whole title as a tool tip*/}
             <img src={image} alt={title?.split(" ").slice(-2).join(" ")} title={title} />
          </Link>
 
          <div className={singleProductData && styles.detail}>
-            <h3>{singleProductData ? title : title?.split(" ").slice(0, 6).join(" ") + "..." || " loading ...."}</h3>
+            <h3>{checkout ? title : title?.split(" ").slice(0, 6).join(" ") + "..." || " loading ...."}</h3>
             {singleProductData && <div>{description}</div>}
             <div className={styles.rating}>
                {/* setting the reting from data on the react material component using its attributes */}
                <span>Rating: </span>
-               <Rating value={rating?.rate} precision={0.2} />
+               <Rating value={rating?.rate} precision={0.25} />
                <small>{rating?.count}</small>
             </div>
          </div>
 
-         <div>
+         <div style={{ marginBottom: "1.5em" }}>
             {/* price */}
             <CurrencyFormat amount={price} />
          </div>
-
-         <button onClick={addToCart} className={styles.button}>
-            add to cart
-         </button>
+         {!checkout && (
+            <button onClick={addToCart} className={styles.button}>
+               add to cart
+            </button>
+         )}
+         {/* </div> */}
       </div>
    );
 }
