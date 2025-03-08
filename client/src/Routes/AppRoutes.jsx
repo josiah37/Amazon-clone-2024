@@ -2,12 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import PageNotFound from "../Pages/PageNotFound";
 import SharedComponent from "../Components/Layout/SharedLayoutss";
-import Orders from "../Pages/Orders";
+import Orders from "../Pages/Orders/Orders";
 import Cart from "../Pages/Cart/Cart";
 import Payment from "../Pages/Payment/Payment";
 import Auth from "../Pages/Auth/Auth";
 import Results from "../Pages/Results/Results";
 import ProductsDetail from "../Pages/Products Detail/ProductsDetail";
+import { ProtectedRoutes } from "../Components/ProtectedRoutes/ProtectedRoutes";
 
 // for stripe payment
 import { Elements } from "@stripe/react-stripe-js";
@@ -23,18 +24,26 @@ function AppRoutes() {
          <Routes>
             <Route path="/" element={<SharedComponent />}>
                <Route index element={<Home />} />
-               <Route path="Orders" element={<Orders />} />
+
                <Route path="Cart" element={<Cart />} />
                <Route path="category/:categoryName" element={<Results />} />
                <Route path="/product/:id" element={<ProductsDetail />} />
                <Route
                   path="Payments"
                   element={
-                     // <ProtectedRoute msg={"You must login to pay"} redirect={"/payment"}>
-                     <Elements stripe={stripePromise}>
-                        <Payment />
-                     </Elements>
-                     // </ProtectedRoute>
+                     <ProtectedRoutes msg={"You must login to pay"} redirect={"/payment"}>
+                        <Elements stripe={stripePromise}>
+                           <Payment />
+                        </Elements>
+                     </ProtectedRoutes>
+                  }
+               />
+               <Route
+                  path="Orders"
+                  element={
+                     <ProtectedRoutes msg={"You must login to see your orders"} redirect={"/orders"}>
+                        <Orders />
+                     </ProtectedRoutes>
                   }
                />
             </Route>

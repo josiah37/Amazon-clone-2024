@@ -50,7 +50,6 @@
    gap: 50px;
    justify-items: center;
    margin: 0 130px;
-   padding: 0;
 }
 
 /*  for the `single product` page rendering  */
@@ -58,15 +57,18 @@
    box-shadow: none;
    height: auto;
    display: flex;
-   justify-content: center;
+   justify-content: center; /*this is distorting the image on saller products */
    align-items: center;
    gap: 50px;
-
-   margin: 7rem 0 5rem 0;
+   margin: 2rem 0 1rem;
    width: 100%;
    /* margin-bottom: 5rem; */
    /* background-color: #d85757; */
 }
+
+/* .description {
+   flex-grow: 1;   // not implemented i was trying to give a little more room for the discription tho 
+} */
 .product_flexed h3 {
    padding: 20px 0px;
 }
@@ -86,10 +88,24 @@
 }
 .detail {
    width: 35%;
+   /* text-align: center; */
+   /* margin: 0 50vw; */
+
+   /* background-color: #80f9f5; */
 }
+
 @media screen and (max-width: 768px) {
    .product_flexed {
       display: flex;
       flex-direction: column;
+      gap: 1em;
+      width: 100vw;
+   }
+}
+
+@media screen and (min-width: 1450px) {
+   .product_container {
+      /* padding: 0 150px; */
+      margin: 0 auto;
    }
 }

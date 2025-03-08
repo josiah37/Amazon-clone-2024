@@ -48,9 +48,9 @@ function ProductsCard({ productsData, singleProductData, checkout }) {
             <img src={image} alt={title?.split(" ").slice(-2).join(" ")} title={title} />
          </Link>
 
-         <div className={singleProductData && styles.detail}>
+         <div className={(singleProductData || checkout) && styles.detail}>
             <h3>{checkout ? title : title?.split(" ").slice(0, 6).join(" ") + "..." || " loading ...."}</h3>
-            {singleProductData && <div>{description}</div>}
+            {singleProductData && <div className={styles.description}>{description}</div>}
             <div className={styles.rating}>
                {/* setting the reting from data on the react material component using its attributes */}
                <span>Rating: </span>

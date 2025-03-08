@@ -34,7 +34,7 @@ const Header = () => {
                      <span>
                         <IoLocationOutline />
                      </span>
-                     <div>
+                     <div className={styles.delivery2}>
                         <p>deliver to</p>
                         <span>Ethiopia</span>
                      </div>

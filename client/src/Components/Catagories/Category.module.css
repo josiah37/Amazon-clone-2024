@@ -1,5 +1,6 @@
+/* todo: it is not that significant but you can make the `shop now` in the catagories look the same... makebe making a card the enlage and shrink... idk i am tired now lol */
 .category {
-   height: 260px;
+   height: 280px;
    width: 260px;
    background-color: white;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -23,12 +24,22 @@
    font-size: 12px;
    font-weight: bold;
    color: rgb(9, 132, 209);
+   padding-top: 2%;
 }
 .category_container {
    position: relative;
-   margin-top: -100px;
+   margin-top: -200px;
    margin-bottom: 5%;
    display: grid;
-   grid-template-columns: repeat(4, 1fr);
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
    place-items: center;
+}
+
+/* Media query for smaller screens (e.g., tablets and phones) */
+
+/* Media query for even smaller screens (e.g., phones) */
+@media (max-width: 680px) {
+   .category_container {
+      padding-top: 150px; /* Adjust padding as needed */
+   }
 }

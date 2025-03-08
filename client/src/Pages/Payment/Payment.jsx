@@ -21,7 +21,7 @@ const Payment = () => {
    const stripe = useStripe();
    const elements = useElements();
 
-   // const navigate = useNavigate()
+   const navigate = useNavigate();
 
    //to display if there is any error we are getting from stripe
    const [cardError, setCardError] = useState(null);
@@ -58,12 +58,14 @@ const Payment = () => {
 
          //step3: After the confirmation is over,  move to database store, and clear basket."
          // collection is like a table while doc is like a row.(in a collection there are docs)
-         await db
-            .collection("users")
-            .doc(user.uid)
-            .collection("orders")
-            .doc(paymentIntent.id)
-            .set({ basket: basket, amount: paymentIntent.amount, created: paymentIntent.created });
+         await setDoc(doc(db, "users", user.uid, "orders", paymentIntent.id), {
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+         });
+         // dispatch({ type: Type.EMPTY_BASKET });
+
+         navigate("/orders", { state: { msg: "You have placed a new order" } });
       } catch (error) {
          console.log(error, error?.response?.data?.message);
          // the above error handler handel on change but what if the user forgets to insert their info
