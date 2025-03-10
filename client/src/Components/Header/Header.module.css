@@ -184,22 +184,27 @@ header p {
    /* border-width: 5px; */
 }
 
+/*  media query */
 @media screen and (max-width: 576px) {
    header {
       width: 100%;
       display: flex;
       flex-direction: column !important;
-      height: auto;
+      /* height: auto; */
       /* justify-content: space-around; */
-      gap: 32%;
+      /* gap: 32%; */
       /* margin-bottom: 50%; */
    }
    .nav_rightside {
-      width: 100%;
+      width: 90%;
+      padding: 3%;
    }
    .lower_header ul li:not(:first-child) {
       display: none;
    }
+}
+
+@media screen and (max-width: 800px) {
    .lang,
    .delivery {
       display: none;

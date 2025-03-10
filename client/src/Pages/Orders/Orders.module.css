@@ -25,3 +25,8 @@
    padding: 1.5em;
    font-size: 2em;
 }
+
+.orders_container span {
+   color: rgba(255, 166, 0, 0.834);
+   font-weight: 600;
+}

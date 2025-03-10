@@ -1,13 +1,17 @@
 import axios from "axios";
 
 // instances
-const aiosStoreBaseApi = axios.create({
+const axiosStoreBaseApi = axios.create({
    baseURL: "",
 });
 
 // function-tool url from Frie base
 const axiosStripeApi = axios.create({
-   baseURL: "http://127.0.0.1:5001/clone-69834/us-central1/api",
+   //on local host
+   // baseURL: "http://127.0.0.1:5001/clone-69834/us-central1/api",
+
+   // instade of the local host now the actuall deployed baackedn
+   baseURL: " https://amazone-backend-q05p.onrender.com/",
 });
 
-export { aiosStoreBaseApi, axiosStripeApi };
+export { axiosStoreBaseApi, axiosStripeApi };

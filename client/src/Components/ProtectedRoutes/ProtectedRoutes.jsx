@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { DataContext } from "../../utils/DataProvider";
 import { redirect, useNavigate } from "react-router";
 
+// TODO: this is not  the standard way of doing it so replace this with the standard route protection
 export const ProtectedRoutes = ({ children, msg, redirect }) => {
    // destructuring the user directly
    const {

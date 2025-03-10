@@ -1,3 +1,4 @@
+// CATAGORY RESULTS
 import axios from "axios";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
@@ -21,7 +22,7 @@ function Results() {
 
    return (
       <>
-         <h2 style={{ margin: "1%" }}>Results</h2>
+         <h2 style={{ margin: "1%" }}> Catagory Results</h2>
          <hr />
          <p style={{ margin: "10px" }}> Catagory/ {categoryName}</p> <hr />
          <div className={styles.products_container}>

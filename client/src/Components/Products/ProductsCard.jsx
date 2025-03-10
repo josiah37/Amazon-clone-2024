@@ -6,7 +6,7 @@ import { Link } from "react-router";
 // importing things that help for global state managment
 import { Type } from "../../utils/Action.type";
 import { DataContext } from "../../utils/DataProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 // passing productsData as a prop from its parent but we are using this component on the
 // catagory products display(using the same prop name, productsData ) and on
@@ -20,11 +20,12 @@ import { useContext } from "react";
  * @returns contionally if data present the actual render if not a string("data is loading")
  */
 function ProductsCard({ productsData, singleProductData, checkout }) {
-   //  setting conditional rendering beacuse our image is taking time to load(its throwing  undefined because of it)
-   if (!productsData) return "data is loading...!!";
+   //  setting conditional rendering beacuse our image is taking time to load(its throwing  undefined because of it).. actually it is a good practice as it safe gaurd if any thing bad huppens like found unll or thigs take some time etc
+   if (!productsData) return "";
+   const [loading, setLoading] = useState(true);
 
    const { image, title, id, rating, price, description } = productsData;
-
+   setInterval(console.log(productsData), 5000);
    const { state, dispatch } = useContext(DataContext);
 
    const addToCart = () => {
@@ -39,7 +40,11 @@ function ProductsCard({ productsData, singleProductData, checkout }) {
    // console.log("the state is: ", state);
 
    // if the data is fully present render
-   return (
+   return !image ? (
+      <div className={styles.loaderContainer}>
+         <FadeLoader color="#FFA500" loading={loading} />
+      </div>
+   ) : (
       <div className={`${styles.card_container} ${singleProductData || checkout ? styles.product_flexed : ""}`}>
          {/* setting where each image will link or directs to  */}
          <Link to={`/product/${id}`} alt={title}>

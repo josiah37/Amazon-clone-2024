@@ -63,7 +63,7 @@ const Payment = () => {
             amount: paymentIntent.amount,
             created: paymentIntent.created,
          });
-         // dispatch({ type: Type.EMPTY_BASKET });
+         dispatch({ type: Type.EMPTY_BASKET });
 
          navigate("/orders", { state: { msg: "You have placed a new order" } });
       } catch (error) {
