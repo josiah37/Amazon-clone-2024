@@ -122,11 +122,11 @@ span {
 }
 .search svg {
    padding: 7px;
-   background: #febd69;
+   background: pink;
    color: #1a1a1a;
 }
 .search svg:hover {
-   background-color: #d49644;
+   background-color: #48f4f7;
 }
 .search:focus-within {
    border: 2px solid rgb(235 161 173);

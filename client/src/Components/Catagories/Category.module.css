@@ -20,6 +20,10 @@
    padding: 5px;
    margin-left: 15px;
 }
+.category > h3 {
+   text-align: center;
+   color: rgba(255, 166, 0, 0.839);
+}
 .category p {
    font-size: 12px;
    font-weight: bold;
