@@ -38,14 +38,15 @@ const Orders = () => {
                orderData: doc.data(),
             }));
             setOrders(fetchedOrders);
+            setLoading(false);
          });
 
          return () => {
             unsubscribe();
-            setLoading(false);
          };
       } else {
          setOrders([]);
+         setLoading(false);
       }
    }, [user]);
 
@@ -65,8 +66,8 @@ const Orders = () => {
                      <div>
                         {/* {purchaseTime = new Date(stripePayment.created * 1000).toLocaleString()} */}
                         {/* for one time product order */}
-                        {orders?.map((singleOrder, idx) => (
-                           <div key={idx}>
+                        {orders?.map((singleOrder) => (
+                           <div key={singleOrder.id}>
                               <hr />
                               {console.log(singleOrder)}
 
