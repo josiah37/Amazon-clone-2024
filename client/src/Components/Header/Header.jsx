@@ -103,7 +103,7 @@ const Header = () => {
                         <span>{basket.length}</span>
 
                         <Link to={"cart"}>
-                           <BiCart size={30} />
+                           <BiCart size={34} />
                            Cart
                         </Link>
                      </li>

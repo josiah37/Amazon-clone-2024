@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import ProductsCard from "../../Components/Products/ProductsCard";
 
 function ProductsDetail() {
-   //  provides a detail of a single component in a page by using the product id
+   //  provides a detail of a single component/product in a page by using the product id
    const [productDetail, setProductDetail] = useState({});
    const { id } = useParams();
    useEffect(() => {

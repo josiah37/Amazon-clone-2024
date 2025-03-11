@@ -9,7 +9,7 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
-// import { Type } from "../../utils/Action.type";
+import { Type } from "../../utils/Action.type";
 
 const Payment = () => {
    const { state, dispatch } = useContext(DataContext);

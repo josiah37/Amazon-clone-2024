@@ -1,4 +1,5 @@
 import Rating from "@mui/material/Rating";
+import { FadeLoader } from "react-spinners";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./Products.module.css";
 import { Link } from "react-router";
@@ -42,7 +43,7 @@ function ProductsCard({ productsData, singleProductData, checkout }) {
    // if the data is fully present render
    return !image ? (
       <div className={styles.loaderContainer}>
-         <FadeLoader color="#FFA500" loading={loading} />
+         <FadeLoader color="#000" loading={loading} />
       </div>
    ) : (
       <div className={`${styles.card_container} ${singleProductData || checkout ? styles.product_flexed : ""}`}>

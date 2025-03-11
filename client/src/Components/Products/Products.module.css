@@ -55,11 +55,12 @@
 
 /*  for the `single product` page rendering  */
 .product_flexed {
-   box-shadow: none;
-   height: auto;
    display: flex;
    justify-content: center; /*this is distorting the image on saller products */
    align-items: center;
+   flex-wrap: wrap;
+   box-shadow: none;
+   height: auto;
    gap: 50px;
    margin: 2rem 0 1rem;
    width: 100%;
@@ -67,9 +68,11 @@
    /* background-color: #d85757; */
 }
 
-/* .description {
-   flex-grow: 1;   // not implemented i was trying to give a little more room for the discription tho 
-} */
+/* not implemented i was trying to give a little more room for the discription tho  */
+.description {
+   /* flex-grow: 5; */
+   /* and also trying to implment or make th ediscription wider in a small screen. as for now it is all on thin center */
+}
 .product_flexed h3 {
    padding: 20px 0px;
 }
@@ -80,7 +83,7 @@
    /* margin-right: 40px; */
 }
 .product_flexed {
-   height: 50vh;
+   /* height: 50vh; */
 }
 
 .product_flexed img {
@@ -101,16 +104,40 @@
    justify-content: center;
    align-items: center;
    height: 100vh; /* Full viewport height */
-   padding-left: 50vw;
+   /* width: 50vw; */
 }
 
-/* media query */
-@media screen and (max-width: 768px) {
+/** media query */
+/* i am making it's own css because it does not go along with the above one */
+
+@media (min-width: 800px) {
+   .ProductsListloaderContainer {
+      padding-left: 50vw;
+
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+   }
+}
+
+/* this is saying if it is screen or you can leave that too which is equal to 'all' */
+@media screen and (max-width: 568px) {
    .product_flexed {
+      margin-top: 10%;
       display: flex;
       flex-direction: column;
       gap: 1em;
       width: 100vw;
+   }
+
+   /* .description {
+      width: 80vw;
+      margin-right: 40%;
+   } */
+   .card_container {
+      width: 70%;
+      /* margin: 0;
+      padding: 0; */
    }
 }
 

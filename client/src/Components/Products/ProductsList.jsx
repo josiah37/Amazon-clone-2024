@@ -32,7 +32,7 @@ function ProductsList() {
    return (
       <section className={styles.product_container}>
          {loading ? (
-            <div className={styles.loaderContainer}>
+            <div className={styles.ProductsListloaderContainer}>
                <FadeLoader color="#FFA500" loading={loading} />
             </div>
          ) : (

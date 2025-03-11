@@ -1,5 +1,6 @@
 import axios from "axios";
-
+// todo: replacing the hardcoded with base ( the link for catagory and products)
+ 
 // instances
 const axiosStoreBaseApi = axios.create({
    baseURL: "",

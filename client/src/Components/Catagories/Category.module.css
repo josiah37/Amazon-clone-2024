@@ -48,8 +48,14 @@
       content: "products";
    }
 }
+
 @media (max-width: 950px) {
    .category {
       margin-top: 2em;
+   }
+}
+@media (max-width: 500px) {
+   .category {
+      margin-top: 5em;
    }
 }

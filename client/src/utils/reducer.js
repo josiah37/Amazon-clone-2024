@@ -43,6 +43,13 @@ export const reducer = (state, action) => {
             basket: newBasket,
          };
 
+      // empty basket after burchase
+      case Type.EMPTY_BASKET:
+         return {
+            ...state,
+            basket: [],
+         };
+
       // handling dispatch to set user
       case Type.SET_USER:
          return {

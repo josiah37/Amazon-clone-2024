@@ -1,10 +1,15 @@
 import styles from "./category.module.css";
 import { Link } from "react-router";
+import { FadeLoader } from "react-spinners";
 
 function CategoryCard({ data }) {
-   if (!data) return null; // Avoids errors if data is undefined(e.x: data.title renders and throw error way before the data comes in and brake the app) alternativly use can use the optional chaning too data?.title
+   if (!data) return ""; // Avoids errors if data is undefined(e.x: data.title renders and throw error way before the data comes in and brake the app) alternativly use can use the optional chaning too data?.title
 
-   return (
+   return !data ? (
+      <div className={styles.loaderContainer}>
+         <FadeLoader color="#000" loading={loading} />
+      </div>
+   ) : (
       <div className={styles.category}>
          <h3>{data?.category}</h3>
          <Link to={`/category/${data?.category}`}>
