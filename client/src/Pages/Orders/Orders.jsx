@@ -10,6 +10,7 @@ import { FadeLoader } from "react-spinners";
 /**
  * TODO: if firbase have date of order include it in the orders page but since u dont use firebase in the future incorprate an object for a date of purchase in normal node and include it in the data sent to the backend
  * tODO: CURNETLLY if the user refresh on the orders or payment page it is not presisting the user instead it make them to go to the redirect page, auth. i think it is because of the protected route but like the other pages make it persistant her too.
+ * todo: the orders is showing only the price directly from the products page. it does not consider if the user bought a product in bunch so adding at least the amount like item (<the prodct amount they bought like 3>)
  */
 const Orders = () => {
    // state fore the loader. setting the loader on

@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { DataContext, DataProvider } from "../../utils/DataProvider";
 import { Type } from "../../utils/Action.type";
 // import {} form "reacts"
-// TODO
+// TODO: 
 //    loader for the sign in/up btns
 // <SyncLoader speedMultiplier={0.7} />
 const Auth = () => {

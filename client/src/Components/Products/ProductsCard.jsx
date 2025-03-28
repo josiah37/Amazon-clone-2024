@@ -26,7 +26,7 @@ function ProductsCard({ productsData, singleProductData, checkout }) {
    const [loading, setLoading] = useState(true);
 
    const { image, title, id, rating, price, description } = productsData;
-   setInterval(console.log(productsData), 5000);
+   // setInterval(console.log(productsData), 5000);
    const { state, dispatch } = useContext(DataContext);
 
    const addToCart = () => {

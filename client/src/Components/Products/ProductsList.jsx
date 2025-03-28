@@ -37,7 +37,7 @@ function ProductsList() {
             </div>
          ) : (
             Products?.map((singleProductItem) => {
-               console.log("fromlist \n", singleProductItem);
+               // console.log("fromlist \n", singleProductItem);
                return <ProductsCard key={singleProductItem.id} productsData={singleProductItem} />;
             })
          )}

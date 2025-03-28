@@ -22,7 +22,7 @@ function AppRoutes() {
    return (
       <>
          <Routes>
-            <Route path="/" element={<SharedComponent />}>
+            <Route path="/" element={<SharedComponent />}> 
                <Route index element={<Home />} />
 
                <Route path="Cart" element={<Cart />} />
