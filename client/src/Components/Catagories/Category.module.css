@@ -1,6 +1,6 @@
 /* todo: it is not that significant but you can make the `shop now` in the catagories look the same... makebe making a card the enlage and shrink... idk i am tired now lol */
 .category {
-   height: 280px;
+   height: 300px;
    width: 260px;
    background-color: white;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -56,6 +56,9 @@
 }
 @media (max-width: 500px) {
    .category {
+      margin-top: 2.5em;
+   }
+   .category:first-child {
       margin-top: 5em;
    }
 }

@@ -1,10 +1,13 @@
 .container {
-   background-color: #efeeee;
+   /* background-color: #f4ef51; */
    padding: 30px;
 }
 .orders_container {
-   background-color: #fff;
-   padding: 20px;
+   /* background-color: #bf919f; */
+   /* padding: 20px; */
+   /* overflow: hidden; or 'auto', 'scroll' based on your needs */
+   white-space: normal; /* allows text to wrap */
+   overflow-wrap: break-word; /* prevents overflow by breaking words */
 }
 .orders_container h2 {
    border-bottom: 2px solid var(--primary-shade);

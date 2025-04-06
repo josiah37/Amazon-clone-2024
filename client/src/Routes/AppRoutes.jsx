@@ -6,7 +6,7 @@ import Orders from "../Pages/Orders/Orders";
 import Cart from "../Pages/Cart/Cart";
 import Payment from "../Pages/Payment/Payment";
 import Auth from "../Pages/Auth/Auth";
-import Results from "../Pages/Results/Results";
+import Results from "../Pages/Category_Results/Category_Results";
 import ProductsDetail from "../Pages/Products Detail/ProductsDetail";
 import { ProtectedRoutes } from "../Components/ProtectedRoutes/ProtectedRoutes";
 
