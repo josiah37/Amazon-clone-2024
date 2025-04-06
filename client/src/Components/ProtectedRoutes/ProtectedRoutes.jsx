@@ -19,5 +19,9 @@ export const ProtectedRoutes = ({ children, msg, redirect }) => {
       }
    }, [user]);
 
-   return children;
+   // return children;
+   // the above return the children regadless of the user status so the user may see glimps of what the page holds
+
+   // returning children only user is there(better way)
+   return user ? children : null;
 };

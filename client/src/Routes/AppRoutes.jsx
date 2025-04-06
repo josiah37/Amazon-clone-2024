@@ -25,7 +25,7 @@ function AppRoutes() {
             <Route path="/" element={<SharedComponent />}> 
                <Route index element={<Home />} />
 
-               <Route path="Cart" element={<Cart />} />
+               <Route path="cart" element={<Cart />} />
                <Route path="category/:categoryName" element={<Results />} />
                <Route path="/product/:id" element={<ProductsDetail />} />
                <Route

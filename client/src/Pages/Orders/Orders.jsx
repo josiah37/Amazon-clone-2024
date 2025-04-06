@@ -67,48 +67,50 @@ const Orders = () => {
                      <div>
                         {/* {purchaseTime = new Date(stripePayment.created * 1000).toLocaleString()} */}
                         {/* for one time product order */}
-                        {orders?.map((singleOrder) => (
-                           <div key={singleOrder.id}>
-                              <hr />
-                              {console.log(singleOrder)}
+                        {orders?.map((singleOrder, idx) => {
+                           console.log(singleOrder.id);
+                           return (
+                              // <div key={singleOrder.id}>
+                              <div key={idx}>
+                                 {" "}
+                                 <hr />
+                                 {console.log(singleOrder)}
+                                 {/* since multiline of code is not allowed in jsx use func*/}
+                                 {(() => {
+                                    //using toLocaleString()
+                                    // const purchaseTime = new Date(singleOrder.orderData.created * 1000).toLocaleString();
 
-                              {/* since multiline of code is not allowed in jsx use func*/}
-                              {(() => {
-                                 //using toLocaleString()
-                                 // const purchaseTime = new Date(singleOrder.orderData.created * 1000).toLocaleString();
+                                    //*using utc time
+                                    // const purchaseTime2 = new Date(singleOrder.orderData.created * 1000).toUTCString();
+                                    // changing to utc3 or gmt3
+                                    // const utc3 = 3 * 60 * 60;
+                                    // const timestamp = singleOrder.orderData.created * 1000;
+                                    // const purchaseTime3 = new Date(timestamp+ utc3).toUTCString();
 
-                                 //*using utc time
-                                 // const purchaseTime2 = new Date(singleOrder.orderData.created * 1000).toUTCString();
-                                 // changing to utc3 or gmt3
-                                 // const utc3 = 3 * 60 * 60;
-                                 // const timestamp = singleOrder.orderData.created * 1000;
-                                 // const purchaseTime3 = new Date(timestamp+ utc3).toUTCString();
+                                    //*  the above is a little aschgrai ... this is simple and check ur note for more
+                                    const timestamp = singleOrder.orderData.created * 1000;
+                                    const purchaseTime3 = new Date(timestamp).toLocaleString("en-US", {
+                                       timeZone: "EAT",
+                                    });
 
-                                 //*  the above is a little aschgrai ... this is simple and check ur note for more
-                                 const timestamp = singleOrder.orderData.created * 1000;
-                                 const purchaseTime3 = new Date(timestamp).toLocaleString("en-US", {
-                                    timeZone: "EAT",
-                                 });
-
-                                 return (
-                                    <p>
-                                       <span>Products purchased on: </span>
-                                       {/* <b> {purchaseTime3}</b> */}
-                                       {purchaseTime3}
-                                    </p>
-                                 );
-                              })()}
-
-                              {/* <p> purchased on: </p> */}
-                              <p>
-                                 <span>Order ID:</span> {singleOrder?.orderId}
-                              </p>
-
-                              {singleOrder?.orderData?.basket?.map((Order) => (
-                                 <ProductsCard key={Order.id} productsData={Order} checkout={true} />
-                              ))}
-                           </div>
-                        ))}
+                                    return (
+                                       <p>
+                                          <span>Products purchased on: </span>
+                                          {/* <b> {purchaseTime3}</b> */}
+                                          {purchaseTime3}
+                                       </p>
+                                    );
+                                 })()}
+                                 {/* <p> purchased on: </p> */}
+                                 <p>
+                                    <span>Order ID:</span> {singleOrder?.orderId}
+                                 </p>
+                                 {singleOrder?.orderData?.basket?.map((Order) => (
+                                    <ProductsCard key={Order.id} productsData={Order} checkout={true} />
+                                 ))}
+                              </div>
+                           );
+                        })}
                      </div>
                   </>
                )}

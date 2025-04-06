@@ -68,6 +68,7 @@ const Payment = () => {
          navigate("/orders", { state: { msg: "You have placed a new order" } });
       } catch (error) {
          console.log(error, error?.response?.data?.message);
+         console.log(error);
          // the above error handler handel on change but what if the user forgets to insert their info
          setCardError(error?.response?.data?.message);
       } finally {
