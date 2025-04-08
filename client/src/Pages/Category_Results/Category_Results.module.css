@@ -27,7 +27,7 @@
 /* media query */
 @media (max-width: 590px) {
    .products_container {
-      /* margin: 10%; */
+      /* margin: 10%;    */
    }
    /* i thnk the gap here is given in the products component since it is just sending the props. */
 }
