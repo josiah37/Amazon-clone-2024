@@ -1,7 +1,7 @@
 //  handles the auth (including the sign in and ansign up)
 import styles from "./Auth.module.css";
 import { Link, useLocation, useNavigate } from "react-router";
-import AmazonLogo from "/src/assets/Amazon-black.png";
+import AmazonLogo from "../../assets/amazon-black.png";
 import { useState, useContext } from "react";
 import { auth } from "../../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { DataContext, DataProvider } from "../../utils/DataProvider";
 import { Type } from "../../utils/Action.type";
 // import {} form "reacts"
-// TODO: 
+// TODO:
 //    loader for the sign in/up btns
 // <SyncLoader speedMultiplier={0.7} />
 const Auth = () => {
