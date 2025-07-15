@@ -6,7 +6,7 @@
    "scripts": {
       "dev": "vite",
       "build": "vite build",
-      "prebuild": "eslint .",
+      "prebuild_remove_after_the_underscore": "eslint .",
       "lint": "eslint .",
       "preview": "vite preview"
    },
